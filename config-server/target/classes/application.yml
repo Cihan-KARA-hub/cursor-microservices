@@ -7,10 +7,9 @@ spring:
       git:
        uri: https://github.com/Cihan-KARA-hub/cursor-microservices.git
        default-label: main
-        profile: dev
        search-paths: 
-         - config/
-         - config/{application}
+         - configuration/
+         - configuration/{application}
                     
 server:
   port:8787
