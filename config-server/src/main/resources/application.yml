@@ -1,15 +1,16 @@
+server:
+  port: 8787
+
 spring:
   application:
     name: config-server
+
   cloud:
     config:
-    server:
-      git:
-       uri: https://github.com/Cihan-KARA-hub/cursor-microservices.git
-       default-label: main
-       search-paths: 
-         - configuration/
-         - configuration/{application}
-                    
-server:
-  port:8787
+      server:
+        git:
+          uri: https://github.com/Cihan-KARA-hub/cursor-microservices.git
+          default-label: main
+          search-paths:
+            - configuration/
+            - configuration/{application}
