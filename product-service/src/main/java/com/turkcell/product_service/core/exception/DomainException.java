@@ -1,4 +1,4 @@
-package com.turkcell.product_service.exception;
+package com.turkcell.product_service.core.exception;
 
 public class DomainException extends IllegalArgumentException {
 

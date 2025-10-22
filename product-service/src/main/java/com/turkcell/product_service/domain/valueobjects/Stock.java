@@ -1,8 +1,7 @@
 package com.turkcell.product_service.domain.valueobjects;
 
-import com.turkcell.product_service.domain.entities.Product;
-import com.turkcell.product_service.exception.DomainException;
-import com.turkcell.product_service.exception.message.DomainErrorMessages;
+import com.turkcell.product_service.core.exception.DomainException;
+import com.turkcell.product_service.core.exception.message.DomainErrorMessages;
 
 import java.util.Objects;
 

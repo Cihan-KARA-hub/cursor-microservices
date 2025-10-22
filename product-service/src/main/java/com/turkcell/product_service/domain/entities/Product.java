@@ -3,8 +3,8 @@ package com.turkcell.product_service.domain.entities;
 import com.turkcell.product_service.domain.valueobjects.Price;
 import com.turkcell.product_service.domain.valueobjects.ProductId;
 import com.turkcell.product_service.domain.valueobjects.Stock;
-import com.turkcell.product_service.exception.DomainException;
-import com.turkcell.product_service.exception.message.DomainErrorMessages;
+import com.turkcell.product_service.core.exception.DomainException;
+import com.turkcell.product_service.core.exception.message.DomainErrorMessages;
 
 import java.util.Objects;
 
@@ -53,7 +53,6 @@ public class Product {
     //reconstruct product
     public static Product reconstruct(ProductId id, String name, String description, Price price, Stock stock) {
         validateProduct(name, description, price, stock);
-
         return new Product(id, name, description, price, stock);
     }
 

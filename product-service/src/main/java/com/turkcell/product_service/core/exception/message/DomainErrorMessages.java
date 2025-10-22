@@ -1,4 +1,4 @@
-package com.turkcell.product_service.exception.message;
+package com.turkcell.product_service.core.exception.message;
 
 import org.bouncycastle.crypto.agreement.srp.SRP6Client;
 
