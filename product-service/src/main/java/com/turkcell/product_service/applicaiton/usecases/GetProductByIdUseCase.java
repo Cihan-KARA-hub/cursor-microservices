@@ -21,7 +21,7 @@ public class GetProductByIdUseCase {
 
     public ProductResponse entityToProductResponse(String productId) {
         ProductId id = ProductId.fromString(productId);
-        Product product = productRepository.findById(id).orElseThrow(() ->
+        Product product = productRepository.findById(id.getValue()).orElseThrow(() ->
                 new ApplicationException(ApplicationErrorMessages.NOT_FOUND_MESSAGE));
         return entityToProductResponse(String.valueOf(product));
     }

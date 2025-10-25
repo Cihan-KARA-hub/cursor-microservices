@@ -15,11 +15,11 @@ public class DeleteProductUseCase {
 
     public void execute(String id) {
         ProductId productId = ProductId.fromString(id);
-        boolean exist = productRepository.existsById(productId);
+        boolean exist = productRepository.existsById(productId.getValue());
         if (!exist) {
             throw new ApplicationException(ApplicationErrorMessages.NOT_FOUND_MESSAGE);
         } else {
-            productRepository.deleteById(productId);
+            productRepository.deleteById(productId.getValue());
         }
     }
 }

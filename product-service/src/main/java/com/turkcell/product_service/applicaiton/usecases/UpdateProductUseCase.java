@@ -23,7 +23,7 @@ public class UpdateProductUseCase {
 
     public ProductResponse handle(String id, UpdateProductRequest request) {
         ProductId productId = ProductId.fromString(id);
-        Product product = productRepository.findById(productId)
+        Product product = productRepository.findById(productId.getValue())
                 .orElseThrow(() -> new ApplicationException(ApplicationErrorMessages.NOT_FOUND_MESSAGE));
 
         updateEntityFromRequest(product, request);

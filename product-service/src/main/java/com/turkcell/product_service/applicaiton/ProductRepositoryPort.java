@@ -5,15 +5,16 @@ import com.turkcell.product_service.domain.valueobjects.ProductId;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 public interface ProductRepositoryPort {
     Product save(Product product);
 
-    Optional<Product> findById(ProductId id);
+    Optional<Product> findById(UUID id);
 
     List<Product> findAll();
 
-    void deleteById(ProductId id);
+    void deleteById(UUID id);
 
-    boolean existsById(ProductId id);
+    boolean existsById(UUID id);
 }
