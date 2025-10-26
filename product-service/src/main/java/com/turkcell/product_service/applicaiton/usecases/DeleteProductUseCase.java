@@ -5,6 +5,9 @@ import com.turkcell.product_service.core.exception.ApplicationException;
 import com.turkcell.product_service.core.exception.message.ApplicationErrorMessages;
 import com.turkcell.product_service.domain.entities.Product;
 import com.turkcell.product_service.domain.valueobjects.ProductId;
+import org.springframework.stereotype.Service;
+
+@Service
 
 public class DeleteProductUseCase {
     private final ProductRepositoryPort productRepository;
@@ -15,11 +18,11 @@ public class DeleteProductUseCase {
 
     public void execute(String id) {
         ProductId productId = ProductId.fromString(id);
-        boolean exist = productRepository.existsById(productId.getValue());
+        boolean exist = productRepository.existsById(productId);
         if (!exist) {
             throw new ApplicationException(ApplicationErrorMessages.NOT_FOUND_MESSAGE);
         } else {
-            productRepository.deleteById(productId.getValue());
+            productRepository.deleteById(productId);
         }
     }
 }

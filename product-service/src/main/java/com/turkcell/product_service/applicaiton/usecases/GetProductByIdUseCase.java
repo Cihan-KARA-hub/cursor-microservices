@@ -7,8 +7,10 @@ import com.turkcell.product_service.core.exception.ApplicationException;
 import com.turkcell.product_service.core.exception.message.ApplicationErrorMessages;
 import com.turkcell.product_service.domain.entities.Product;
 import com.turkcell.product_service.domain.valueobjects.ProductId;
+import org.springframework.stereotype.Service;
 
 import java.util.UUID;
+@Service
 
 public class GetProductByIdUseCase {
     private final ProductRepositoryPort productRepository;
@@ -21,7 +23,7 @@ public class GetProductByIdUseCase {
 
     public ProductResponse entityToProductResponse(String productId) {
         ProductId id = ProductId.fromString(productId);
-        Product product = productRepository.findById(id.getValue()).orElseThrow(() ->
+        Product product = productRepository.findById(id).orElseThrow(() ->
                 new ApplicationException(ApplicationErrorMessages.NOT_FOUND_MESSAGE));
         return entityToProductResponse(String.valueOf(product));
     }

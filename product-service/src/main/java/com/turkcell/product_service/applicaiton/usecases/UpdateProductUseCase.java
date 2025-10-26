@@ -9,9 +9,11 @@ import com.turkcell.product_service.core.exception.ApplicationException;
 import com.turkcell.product_service.core.exception.message.ApplicationErrorMessages;
 import com.turkcell.product_service.domain.entities.Product;
 import com.turkcell.product_service.domain.valueobjects.ProductId;
+import org.springframework.stereotype.Service;
 
 import static com.turkcell.product_service.applicaiton.mapper.ProductMapper.entityToProductResponse;
 import static com.turkcell.product_service.applicaiton.mapper.ProductMapper.updateEntityFromRequest;
+@Service
 
 public class UpdateProductUseCase {
     private final ProductRepositoryPort productRepository;
@@ -23,7 +25,7 @@ public class UpdateProductUseCase {
 
     public ProductResponse handle(String id, UpdateProductRequest request) {
         ProductId productId = ProductId.fromString(id);
-        Product product = productRepository.findById(productId.getValue())
+        Product product = productRepository.findById(productId)
                 .orElseThrow(() -> new ApplicationException(ApplicationErrorMessages.NOT_FOUND_MESSAGE));
 
         updateEntityFromRequest(product, request);

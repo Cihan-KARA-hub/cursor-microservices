@@ -10,11 +10,29 @@ import java.util.UUID;
 public interface ProductRepositoryPort {
     Product save(Product product);
 
-    Optional<Product> findById(UUID id);
-
+    Optional<Product> findById(ProductId id);
     List<Product> findAll();
 
-    void deleteById(UUID id);
+    List<Product> findByNameContaining(String name);
 
-    boolean existsById(UUID id);
+    List<Product> findInStockProducts();
+
+
+    List<Product> findOutOfStockProducts();
+
+
+    List<Product> findByPriceRange(double minPrice, double maxPrice);
+
+
+    void deleteById(ProductId id);
+
+
+    boolean existsById(ProductId id);
+
+
+    long count();
+
+
+
+    long countInStockProducts();
 }

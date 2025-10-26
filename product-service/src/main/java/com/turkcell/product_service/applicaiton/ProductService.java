@@ -1,12 +1,14 @@
 package com.turkcell.product_service.applicaiton;
 
 import com.turkcell.product_service.applicaiton.dto.CreateProductRequest;
+import com.turkcell.product_service.applicaiton.dto.ProductListResponse;
 import com.turkcell.product_service.applicaiton.dto.ProductResponse;
 import com.turkcell.product_service.applicaiton.dto.UpdateProductRequest;
 import com.turkcell.product_service.applicaiton.usecases.*;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class ProductService implements ProductServicePort {
     private final CreateProductUseCase createProductUseCase;
     private final UpdateProductUseCase updateProductUseCase;
@@ -33,7 +35,7 @@ public class ProductService implements ProductServicePort {
     }
 
     @Override
-    public List<ProductResponse> getAllProducts() {
+    public ProductListResponse getAllProducts() {
         return getAllProductsUseCase.handle();
     }
 

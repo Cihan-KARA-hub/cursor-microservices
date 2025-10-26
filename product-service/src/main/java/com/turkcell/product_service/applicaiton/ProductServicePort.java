@@ -1,6 +1,7 @@
 package com.turkcell.product_service.applicaiton;
 
 import com.turkcell.product_service.applicaiton.dto.CreateProductRequest;
+import com.turkcell.product_service.applicaiton.dto.ProductListResponse;
 import com.turkcell.product_service.applicaiton.dto.ProductResponse;
 import com.turkcell.product_service.applicaiton.dto.UpdateProductRequest;
 
@@ -12,7 +13,7 @@ public interface ProductServicePort {
 
     ProductResponse getProductById(String id);
 
-    List<ProductResponse> getAllProducts();
+   ProductListResponse getAllProducts();
 
     ProductResponse updateProduct(String id, UpdateProductRequest request);
 
